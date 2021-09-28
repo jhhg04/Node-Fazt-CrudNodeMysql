@@ -4,9 +4,10 @@ const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 
+// Initializations
 const app = express();
 
-// importing routes
+// Importing Routes
 const customerRoutes = require('./routes/customer');
 
 // Settings
@@ -29,13 +30,12 @@ app.use(
     'single'
   )
 );
-app.use(express.urlencoded({extended:false}))
-
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/', customerRoutes);
 
-// Static files
+// Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Starting the Server
